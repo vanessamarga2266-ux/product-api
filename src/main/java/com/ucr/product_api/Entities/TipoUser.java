@@ -29,9 +29,6 @@ public class TipoUser {
     @Column(name = "name", nullable = false, length = 50)
     private String name;
  
-    @Column(name = "Membership_id", nullable = false)
-    private Integer membershipId;
- 
     @Column(name = "description", length = 150)
     private String description;
 }
