@@ -1,7 +1,9 @@
 package com.ucr.product_api.repositories;
 
 import java.util.List;
- 
+import java.util.Optional;
+import java.util.UUID;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
  
@@ -13,4 +15,14 @@ public interface TipoUserRepository extends JpaRepository<TipoUser, Long> {
  
         return findAll();
     }
+
+    default TipoUser addTipoUser(TipoUser tipoUser){
+        return save(tipoUser);
+    }
+
+    Optional<TipoUser> findByResourceId(UUID resourceId);
+
+    default TipoUser updateTipoUser(TipoUser tipoUser){
+        return save(tipoUser);
+    };
 }

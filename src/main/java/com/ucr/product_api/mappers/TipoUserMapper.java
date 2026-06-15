@@ -1,12 +1,15 @@
 package com.ucr.product_api.mappers;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
 import com.ucr.product_api.Entities.TipoUser;
 import com.ucr.product_api.dtos.TipoUserDto;
+import com.ucr.product_api.dtos.TipoUserRequestDto;
+import com.ucr.product_api.models.TipoUserRequestModel;
 import com.ucr.product_api.models.TipoUserResponseModel;
 
 @Component
@@ -17,7 +20,7 @@ public class TipoUserMapper {
             return null;
         }
 
-        return new TipoUserDto(tipoUser.getName(), tipoUser.getDescription());
+        return new TipoUserDto(tipoUser.getResourceId() ,tipoUser.getName(), tipoUser.getDescription());
     }
 
     public List<TipoUserDto> toTipoUserDtoList(List<TipoUser> tipoUsers){
@@ -35,7 +38,7 @@ public class TipoUserMapper {
             return null;
         }
 
-        return new TipoUserResponseModel(tipoUserDto.name(), tipoUserDto.description());
+        return new TipoUserResponseModel(tipoUserDto.resourceId(), tipoUserDto.name(), tipoUserDto.description());
     }
 
     public List<TipoUserResponseModel> toTipoUserResponseModelList(List<TipoUserDto> tipoUserDtos){
@@ -46,5 +49,30 @@ public class TipoUserMapper {
         return tipoUserDtos.stream()
                 .map(this::toTipoUserResponseModel)
                 .collect(Collectors.toList());
+    }
+
+    public TipoUserRequestDto toTipoUserRequestDto(TipoUserRequestModel tipoUser){
+        if (tipoUser == null) {
+            return null;
+        }
+
+        TipoUserRequestDto tipoUserDto = new TipoUserRequestDto();
+        tipoUserDto.setName(tipoUser.name());
+        tipoUserDto.setDescription(tipoUser.description());
+        return tipoUserDto;
+    }
+
+    public TipoUser toTipoUserEntity(TipoUserDto dto){
+        if (dto == null) {
+            return null;
+        }
+
+        UUID resourceId = dto.resourceId() == null ? UUID.randomUUID() : dto.resourceId();
+
+        return TipoUser.builder()
+        .name(dto.name())
+        .description(dto.description())
+        .resourceId(resourceId)
+        .build();
     }
 }

@@ -1,6 +1,9 @@
 package com.ucr.product_api.models;
 
+import java.util.UUID;
+
 public class TipoUserResponseModel {
+    private UUID resourceId;
     private String name;
     private String description;
 
@@ -8,9 +11,18 @@ public class TipoUserResponseModel {
         
     }
 
-    public TipoUserResponseModel(String name, String description) {
+    public TipoUserResponseModel(UUID resourceId, String name, String description) {
+        this.resourceId = resourceId;
         this.name = name;
         this.description = description;
+    }
+
+    public UUID getResourceId() {
+        return resourceId;
+    }
+
+    public void setResourceId(UUID resourceId) {
+        this.resourceId = resourceId;
     }
 
     public String getName() {
@@ -31,6 +43,7 @@ public class TipoUserResponseModel {
 
     @Override
     public String toString() {
-        return "TipoUserResponseModel [name=" + name + ", description=" + description + "]";
+        return "TipoUserResponseModel [resourceId=" + resourceId + ", name=" + name + ", description=" + description
+                + "]";
     }
 }
