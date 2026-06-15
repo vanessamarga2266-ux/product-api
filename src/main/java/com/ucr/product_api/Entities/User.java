@@ -26,19 +26,19 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "tipo_user_id", nullable = false)
+    private Integer tipoUserId;
  
-    @Column(name = "full_name", nullable = false, length = 50)
+    @Column(name = "full_name", nullable = false, length = 100)
     private String fullName;
  
-    @Column(name = "email", nullable = false, length = 50)
+    @Column(name = "email", nullable = false, length = 100)
     private String email;
  
     @Column(name = "password", nullable = false, length = 255)
     private String password;
  
-    @Column(name = "role", nullable = false, length = 25)
-    private String role;
- 
-    @Column(name = "created_at", nullable = false)
-    private Date createdAt;
+    @Column(name = "phone", nullable = false, length = 20)
+    private String phone;
 }

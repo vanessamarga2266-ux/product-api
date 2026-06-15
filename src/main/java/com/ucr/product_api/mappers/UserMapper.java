@@ -20,8 +20,7 @@ public class UserMapper {
          * nombres tengan la primera letra en mayúscula
          * o verificar que se llame correctamente
          */
-        return new UserDto(user.getId(), user.getFullName(), user.getEmail(), user.getPassword(), user.getRole(),
-                user.getCreatedAt());
+        return new UserDto(user.getId(),user.getTipoUserId() , user.getFullName(), user.getEmail(), user.getPassword(), user.getPhone());
     }
 
     public List<UserDto> toUserDtoList(List<User> users) {
@@ -39,8 +38,8 @@ public class UserMapper {
             return null;
         }
 
-        return new UserResponseModel(userDto.id(), userDto.fullName(), userDto.email(), userDto.password(),
-                userDto.role(), userDto.createdAt());
+        return new UserResponseModel(userDto.id(),userDto.tipoUserId(), userDto.fullName(), userDto.email(), userDto.password(),
+                userDto.phone());
     }
 
     public List<UserResponseModel> toUserResponseModelList(List<UserDto> userDtos) {

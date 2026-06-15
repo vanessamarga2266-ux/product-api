@@ -17,7 +17,7 @@ public class ProductMapper {
         }
 /* Si tienen un error en estos métodos, revisar la clase y verificar que los nombres tengan la primera letra en mayúscula
     o verificar que se llame correctamente */
-        return new ProductDto(product.getName(), product.getDescription(), product.getPrice());
+        return new ProductDto(product.getResourceId(), product.getName(), product.getDescription(), product.getPrice());
     }
 
     public List<ProductDto> toProductDtoList(List<Product> products) {

@@ -1,14 +1,11 @@
 package com.ucr.product_api.dtos;
 
-
-import java.sql.Date;
-
 public record UserDto(
         long id,
+        Integer tipoUserId,
         String fullName,
         String email,
         String password,
-        String role,
-        Date createdAt) {
-
+        String phone
+        ){
 }

@@ -1,25 +1,25 @@
 package com.ucr.product_api.models;
-import java.sql.Date;
 
 public class UserResponseModel {
     private long id;
+    private Integer tipoUserId;
     private String fullName;
     private String email;
     private String password;
-    private String role;
-    private Date createdAt;
+    private String phone;
 
     public UserResponseModel() {
 
     }
 
-    public UserResponseModel(long id, String fullName, String email, String password, String role, Date createdAt) {
+    public UserResponseModel(long id, Integer tipoUserId, String fullName, String email, String password,
+            String phone) {
         this.id = id;
+        this.tipoUserId = tipoUserId;
         this.fullName = fullName;
         this.email = email;
         this.password = password;
-        this.role = role;
-        this.createdAt = createdAt;
+        this.phone = phone;
     }
 
     public long getId() {
@@ -28,6 +28,14 @@ public class UserResponseModel {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public Integer getTipoUserId() {
+        return tipoUserId;
+    }
+
+    public void setTipoUserId(Integer tipoUserId) {
+        this.tipoUserId = tipoUserId;
     }
 
     public String getFullName() {
@@ -54,30 +62,21 @@ public class UserResponseModel {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
+    @Override
     public String toString() {
-        return "UserResponseModel{" +
-                "id=" + id +
-                ", fullName='" + fullName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", role='" + role + '\'' +
-                ", createdAt=" + createdAt +
-                '}';
+        return "UserResponseModel [id=" + id +
+        ", tipoUserId=" + tipoUserId +
+        ", fullName=" + fullName +
+        ", email=" + email + 
+        ", password=" + password +
+        ", phone=" + phone + "]";
     }
 }

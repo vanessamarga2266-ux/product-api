@@ -8,9 +8,8 @@ import org.springframework.stereotype.Repository;
 import com.ucr.product_api.Entities.User;
 
 @Repository
-
 public interface UserRepository extends JpaRepository<User, Long> {
-    default List<User> findAll() {
+    default List<User> getAll() {
         return findAll();
     }
 }

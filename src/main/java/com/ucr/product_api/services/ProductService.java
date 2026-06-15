@@ -23,20 +23,15 @@ public class ProductService implements IProductService {
 
     @Override
     public Product addProduct(ProductRequestDto productDto) {
-       var product = Product
-       .builder()
-       .name(productDto.getName())
-       .description(productDto.getDescription()
-       .price(productDto.getPrice())
-       .resourceId(UUID.randomUUID())
-       .build();
-       return productRepository.addProduct(product);
+        var product = Product
+        .builder()
+        .name(productDto.getName())
+        .description(productDto.getDescription())
+        .price(productDto.getPrice())
+        .resourceId(UUID.randomUUID())
+        .build();
 
-        
-
-
-
-       )
+        return productRepository.addProduct(product);
     }
     
 }
