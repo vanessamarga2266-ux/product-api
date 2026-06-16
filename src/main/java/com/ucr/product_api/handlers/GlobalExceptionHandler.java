@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.ucr.product_api.dtos.ErrorDto;
+import com.ucr.product_api.exceptions.AttendanceNotFoundException;
 import com.ucr.product_api.exceptions.TipoUserNotFoundException;
 
 @RestControllerAdvice
@@ -20,4 +21,14 @@ public class GlobalExceptionHandler {
                         ex.getMessage()
                 ));
         }
+
+    @ExceptionHandler
+    public ResponseEntity<ErrorDto> handleAttendanceNotFound(
+        AttendanceNotFoundException ex) {
+
+    return ResponseEntity.status(HttpStatus.NOT_FOUND)
+            .body(new ErrorDto(
+                    404,
+                    ex.getMessage()));
+}
 }
