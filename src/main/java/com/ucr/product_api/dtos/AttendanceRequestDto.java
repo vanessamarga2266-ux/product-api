@@ -7,6 +7,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class AttendanceRequestDto {
 
     private Integer clientId;

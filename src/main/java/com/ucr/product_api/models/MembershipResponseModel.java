@@ -1,32 +1,31 @@
 package com.ucr.product_api.models;
 
-import java.math.BigDecimal;
+import java.util.UUID;
 
-public class MembershipResponseModel {
-    private Long id;
-    private String name;
+public class MembershipResponseModel{
+   private UUID resourceId;
+   private String name;
     private String description;
-    private BigDecimal price;
+    private Double price;
     private Integer durationDays;
 
     public MembershipResponseModel() {
-
     }
 
-    public MembershipResponseModel(Long id, String name, String description, BigDecimal price, Integer durationDays) {
-        this.id = id;
+    public MembershipResponseModel(UUID resourceId, String name, String description, Double price, Integer durationDays) {
+        this.resourceId = resourceId;
         this.name = name;
         this.description = description;
         this.price = price;
         this.durationDays = durationDays;
     }
 
-    public Long getId() {
-        return id;
+    public UUID getResourceId() {
+        return resourceId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setResourceId(UUID resourceId) {
+        this.resourceId = resourceId;
     }
 
     public String getName() {
@@ -45,14 +44,13 @@ public class MembershipResponseModel {
         this.description = description;
     }
 
-    public BigDecimal getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
-
     public Integer getDurationDays() {
         return durationDays;
     }
@@ -61,14 +59,10 @@ public class MembershipResponseModel {
         this.durationDays = durationDays;
     }
 
+    @Override
     public String toString() {
-        return "MembershipResponseModel{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", durationDays=" + durationDays +
-                '}';
-
+        return "MembershipResponseModel [resourceId=" + resourceId + ", name=" + name + ", description=" + description
+                + ", price=" + price + ", durationDays=" + durationDays + "]";
     }
+  
 }

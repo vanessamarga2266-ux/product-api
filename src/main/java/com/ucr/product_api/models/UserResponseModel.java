@@ -1,33 +1,33 @@
 package com.ucr.product_api.models;
 
+import java.util.UUID;
+
 public class UserResponseModel {
-    private long id;
+  
     private Integer tipoUserId;
+
     private String fullName;
+
     private String email;
+
     private String password;
+
     private String phone;
 
-    public UserResponseModel() {
+    private UUID resourceId;
 
+    public UserResponseModel() {
+        
     }
 
-    public UserResponseModel(long id, Integer tipoUserId, String fullName, String email, String password,
-            String phone) {
-        this.id = id;
+    public UserResponseModel(Integer tipoUserId, String fullName, String email, String password, String phone,
+            UUID resourceId) {
         this.tipoUserId = tipoUserId;
         this.fullName = fullName;
         this.email = email;
         this.password = password;
         this.phone = phone;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+        this.resourceId = resourceId;
     }
 
     public Integer getTipoUserId() {
@@ -70,13 +70,17 @@ public class UserResponseModel {
         this.phone = phone;
     }
 
+    public UUID getResourceId() {
+        return resourceId;
+    }
+
+    public void setResourceId(UUID resourceId) {
+        this.resourceId = resourceId;
+    }
+
     @Override
     public String toString() {
-        return "UserResponseModel [id=" + id +
-        ", tipoUserId=" + tipoUserId +
-        ", fullName=" + fullName +
-        ", email=" + email + 
-        ", password=" + password +
-        ", phone=" + phone + "]";
+        return "UserResponseModel [tipoUserId=" + tipoUserId + ", fullName=" + fullName + ", email=" + email
+                + ", password=" + password + ", phone=" + phone + ", resourceId=" + resourceId + "]";
     }
 }

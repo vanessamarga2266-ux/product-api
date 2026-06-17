@@ -41,4 +41,8 @@ public class User {
  
     @Column(name = "phone", nullable = false, length = 20)
     private String phone;
+
+     @Column(name = "resource_id", nullable = false, unique = true, length = 36)
+    @JdbcTypeCode(SqlTypes.VARCHAR)
+    private UUID resourceId;
 }

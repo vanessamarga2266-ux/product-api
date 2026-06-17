@@ -1,11 +1,18 @@
 package com.ucr.product_api.dtos;
 
+import java.util.UUID;
+
 public record UserDto(
-        long id,
+
         Integer tipoUserId,
+
         String fullName,
+
         String email,
+
         String password,
-        String phone
-        ){
+
+        String phone,
+
+        UUID resourceId) {
 }

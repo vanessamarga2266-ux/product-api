@@ -37,5 +37,9 @@ public class Membership {
  
     @Column(name = "duration_days", nullable = false)
     private Integer durationDays;
+
+     @Column(name = "resource_id", nullable = false, unique = true, length = 36)
+    @JdbcTypeCode(SqlTypes.VARCHAR)
+    private UUID resourceId;
 }
  
