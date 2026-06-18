@@ -20,7 +20,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Attendance {
 
     @Id
