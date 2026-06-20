@@ -1,5 +1,6 @@
 package com.ucr.product_api.Entities;
 
+import java.time.LocalTime;
 import java.util.UUID;
 
 import org.hibernate.annotations.JdbcTypeCode;
@@ -30,17 +31,17 @@ public class Schedule {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "trainerId", nullable = false, length = 255)
-    private String trainerId;
+    @Column(name = "trainer_id", nullable = false)
+    private Integer trainerId;
 
-    @Column(name = "dayWeek", nullable = false, length = 20)
+    @Column(name = "day_week", nullable = false, length = 20)
     private String dayWeek;
 
-    @Column(name = "startTime", nullable = false)
-    private String startTime;
+    @Column(name = "start_time", nullable = false)
+    private LocalTime startTime;
 
-    @Column(name = "endTime", nullable = false)
-    private String endTime;
+    @Column(name = "end_time", nullable = false)
+    private LocalTime endTime;
 
     @Column(name = "resource_id", nullable = false, unique = true, length = 36)
     @JdbcTypeCode(SqlTypes.VARCHAR)

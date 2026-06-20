@@ -14,13 +14,19 @@ import com.ucr.product_api.models.UserResponseModel;
 
 @Component
 public class UserMapper {
-    
+
     public UserDto toUserDto(User user){
         if (user == null) {
             return null;
         }
 
-        return new UserDto(user.getResourceId(), user.getName(), user.getDescription());
+        return new UserDto(
+                user.getTipoUserId(),
+                user.getFullName(),
+                user.getEmail(),
+                user.getPassword(),
+                user.getPhone(),
+                user.getResourceId());
     }
 
     public List<UserDto> toUserDtoList(List<User> users){
@@ -33,15 +39,21 @@ public class UserMapper {
                 .collect(Collectors.toList());
     }
 
-    public UserResponseModel toUserResponseModel(UserRequestDto userDto){
+    public UserResponseModel toUserResponseModel(UserDto userDto){
         if (userDto == null) {
             return null;
         }
 
-        return new UserResponseModel(userDto.resourceId(), userDto.name(), userDto.description());
+        return new UserResponseModel(
+                userDto.tipoUserId(),
+                userDto.fullName(),
+                userDto.email(),
+                userDto.password(),
+                userDto.phone(),
+                userDto.resourceId());
     }
 
-    public List<UserResponseModel> toUserResponseModelList(List<UserRequestDto> userDtos){
+    public List<UserResponseModel> toUserResponseModelList(List<UserDto> userDtos){
         if (userDtos == null) {
             return null;
         }
@@ -57,8 +69,11 @@ public class UserMapper {
         }
 
         UserRequestDto userDto = new UserRequestDto();
-        userDto.setName(user.name());
-        userDto.setDescription(user.description());
+        userDto.setFullName(user.name());
+        userDto.setEmail(user.email());
+        userDto.setPhone(user.phone());
+        userDto.setPassword(user.password());
+        userDto.setTipoUserId(user.tipoUserId());
         return userDto;
     }
 
@@ -67,12 +82,28 @@ public class UserMapper {
             return null;
         }
 
-        UUID resourceId = dto.resourceId() == null ? UUID.randomUUID() : dto.resourceId();
+        return User.builder()
+        .fullName(dto.getFullName())
+        .email(dto.getEmail())
+        .password(dto.getPassword())
+        .phone(dto.getPhone())
+        .tipoUserId(dto.getTipoUserId())
+        .resourceId(UUID.randomUUID())
+        .build();
+    }
+
+    public User toUserEntity(UserDto dto){
+        if (dto == null) {
+            return null;
+        }
 
         return User.builder()
-        .name(dto.name())
-        .description(dto.description())
-        .resourceId(resourceId)
+        .fullName(dto.fullName())
+        .email(dto.email())
+        .password(dto.password())
+        .phone(dto.phone())
+        .tipoUserId(dto.tipoUserId())
+        .resourceId(dto.resourceId() == null ? UUID.randomUUID() : dto.resourceId())
         .build();
     }
 }

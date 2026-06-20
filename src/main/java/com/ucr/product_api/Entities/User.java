@@ -22,10 +22,13 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "users")
- 
-@Setter
+
 @Getter
- 
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

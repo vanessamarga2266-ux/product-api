@@ -12,7 +12,7 @@ import com.ucr.product_api.exceptions.MembershipNotFoundException;
 import com.ucr.product_api.repositories.MembershipRepository;
  
 @Service
-public class MembershipServices implements IMembershipServices {
+public class MembershipServices implements IMembershipService {
  
     @Autowired
     private MembershipRepository membershipRepository;
@@ -37,6 +37,8 @@ public class MembershipServices implements IMembershipServices {
         .builder()
         .name(membershipDto.getName())
         .description(membershipDto.getDescription())
+        .price(membershipDto.getPrice())
+        .durationDays(membershipDto.getDurationDays())
         .resourceId(UUID.randomUUID())
         .build();
 
@@ -50,6 +52,8 @@ public class MembershipServices implements IMembershipServices {
 
         membership.setName(membershipDto.getName());
         membership.setDescription(membershipDto.getDescription());
+        membership.setPrice(membershipDto.getPrice());
+        membership.setDurationDays(membershipDto.getDurationDays());
 
         return membershipRepository.save(membership);
     }

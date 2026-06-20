@@ -1,18 +1,19 @@
 package com.ucr.product_api.models;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 public class MembershipResponseModel{
    private UUID resourceId;
    private String name;
     private String description;
-    private Double price;
+    private BigDecimal price;
     private Integer durationDays;
 
     public MembershipResponseModel() {
     }
 
-    public MembershipResponseModel(UUID resourceId, String name, String description, Double price, Integer durationDays) {
+    public MembershipResponseModel(UUID resourceId, String name, String description, BigDecimal price, Integer durationDays) {
         this.resourceId = resourceId;
         this.name = name;
         this.description = description;
@@ -44,11 +45,11 @@ public class MembershipResponseModel{
         this.description = description;
     }
 
-    public Double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
     public Integer getDurationDays() {

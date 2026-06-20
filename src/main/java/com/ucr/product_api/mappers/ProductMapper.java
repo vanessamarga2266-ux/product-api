@@ -1,11 +1,14 @@
 package com.ucr.product_api.mappers;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 import com.ucr.product_api.Entities.Product;
 import com.ucr.product_api.dtos.ProductDto;
+import com.ucr.product_api.dtos.ProductRequestDto;
+import com.ucr.product_api.models.ProductRequestModel;
 import com.ucr.product_api.models.ProductResponseModel;
 
 @Component
@@ -46,4 +49,31 @@ public class ProductMapper {
         .map(this::toProductResponseModel)
         .collect(Collectors.toList());
 }
+
+    public Product toProductEntity(ProductDto dto) {
+        if (dto == null) {
+            return null;
+        }
+
+        UUID resourceId = dto.resourceId() == null ? UUID.randomUUID() : dto.resourceId();
+
+        return Product.builder()
+        .name(dto.name())
+        .description(dto.description())
+        .price(dto.price())
+        .resourceId(resourceId)
+        .build();
+    }
+
+    public ProductRequestDto toProductRequestDto(ProductRequestModel model) {
+        if (model == null) {
+            return null;
+        }
+
+        ProductRequestDto dto = new ProductRequestDto();
+        dto.setName(model.name());
+        dto.setDescription(model.description());
+        dto.setPrice(model.price());
+        return dto;
+    }
 }

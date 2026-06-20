@@ -5,10 +5,9 @@ import java.math.BigDecimal;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record MembershipRequestModel(
+public record ProductRequestModel(
     @NotBlank(message = "El nombre es requerido") String name,
     String description,
-    @NotNull(message = "El precio es requerido") BigDecimal price,
-    @NotNull(message = "La duración en días es requerida") Integer durationDays
+    @NotNull(message = "El precio es requerido") BigDecimal price
 ) {
 }
