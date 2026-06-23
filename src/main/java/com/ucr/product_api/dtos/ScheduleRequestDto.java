@@ -1,5 +1,6 @@
 package com.ucr.product_api.dtos;
 
+import java.time.LocalTime;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,16 +11,12 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserRequestDto {
+public class ScheduleRequestDto {
+    private Integer trainerId;
 
-    private Integer tipoUserId;
+    private String dayWeek;
 
-    private String fullName;
+    private LocalTime startTime;
 
-    private String email;
-
-    private String password;
-
-    private String phone;
-
+    private LocalTime endTime;
 }

@@ -24,5 +24,41 @@ public class AttendanceResponseModel {
         this.notes = notes;
     }
 
-    // getters y setters
+    public UUID getResourceId() {
+        return resourceId;
+    }
+
+    public void setResourceId(UUID resourceId) {
+        this.resourceId = resourceId;
+    }
+
+    public Integer getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(Integer clientId) {
+        this.clientId = clientId;
+    }
+
+    public Timestamp getEntryTime() {
+        return entryTime;
+    }
+
+    public void setEntryTime(Timestamp entryTime) {
+        this.entryTime = entryTime;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    @Override
+    public String toString() {
+        return "AttendanceResponseModel [resourceId=" + resourceId + ", clientId=" + clientId
+                + ", entryTime=" + entryTime + ", notes=" + notes + "]";
+    }
 }

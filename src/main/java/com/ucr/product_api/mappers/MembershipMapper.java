@@ -64,12 +64,12 @@ public class MembershipMapper {
             return null;
         }
 
-        UUID resourceId = dto.resourceId() == null ? UUID.randomUUID() : dto.resourceId();
-
         return Membership.builder()
-        .name(dto.name())
-        .description(dto.description())
-        .resourceId(resourceId)
+        .name(dto.getName())
+        .description(dto.getDescription())
+        .price(dto.getPrice())
+        .durationDays(dto.getDurationDays())
+        .resourceId(UUID.randomUUID())
         .build();
     }
 }
