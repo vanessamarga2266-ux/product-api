@@ -20,7 +20,7 @@ public class MembershipMapper {
             return null;
         }
 
-        return new MembershipDto(membership.getResourceId(), membership.getName(), membership.getDescription());
+        return new MembershipDto(membership.getResourceId(), membership.getName(), membership.getDescription(), membership.getPrice(), membership.getDurationDays());
     }
 
     public List<MembershipDto> toMembershipDtoList(List<Membership> memberships){
