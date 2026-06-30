@@ -8,6 +8,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.ucr.product_api.Entities.Attendance;
+/**
+Interfaces que extienden JpaRepository, encapsulan el acceso a la base de datos.
+
+Contienen métodos CRUD ya implementados y consultas personalizadas 
+
+Separan la lógica de acceso a datos de la lógica de negocio.
+
+Facilitan pruebas y mantenimiento al aislar detalles de interacción con la base. 
+*/
 
 @Repository
 public interface AttendanceRepository

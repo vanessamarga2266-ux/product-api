@@ -10,7 +10,11 @@ import com.ucr.product_api.Entities.Attendance;
 import com.ucr.product_api.dtos.AttendanceRequestDto;
 import com.ucr.product_api.exceptions.AttendanceNotFoundException;
 import com.ucr.product_api.repositories.AttendanceRepository;
-
+/**
+Implementan la lógica de negocio y reglas específicas del dominio.
+Validan, coordinan operaciones entre distintas entidades/repositorios.
+Gestionan transacciones y excepciones específicas.
+ */
 @Service
 public class AttendanceService implements IAttendanceService {
 

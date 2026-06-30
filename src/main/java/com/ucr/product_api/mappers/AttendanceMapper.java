@@ -11,7 +11,15 @@ import com.ucr.product_api.dtos.AttendanceDto;
 import com.ucr.product_api.dtos.AttendanceRequestDto;
 import com.ucr.product_api.models.AttendanceRequestModel;
 import com.ucr.product_api.models.AttendanceResponseModel;
+/**
 
+Componentes que convierten entre entidades, DTOs y modelos de requests/responses.
+
+Mantienen la separación de responsabilidades y evitan duplicar lógica de transformación.
+
+Facilitan la evolución del modelo interno sin afectar la API externa.
+
+ */
 @Component
 public class AttendanceMapper {
 

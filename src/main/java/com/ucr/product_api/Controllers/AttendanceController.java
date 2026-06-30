@@ -19,7 +19,16 @@ import com.ucr.product_api.facade.IAttendanceFacade;
 import com.ucr.product_api.mappers.AttendanceMapper;
 import com.ucr.product_api.models.AttendanceRequestModel;
 import com.ucr.product_api.models.AttendanceResponseModel;
+/**
+Exponen los endpoints REST para que los clientes (frontend, apps) consuman la API.
+ 
+Validan datos de entrada mínimos y devuelven respuestas con códigos HTTP apropiados.
 
+Dependen de la fachada para la lógica, manteniendo el controlador ligero.
+
+Manejan rutas organizadas para cada recurso de la aplicación.
+
+ */
 @RestController
 @RequestMapping("/attendance")
 public class AttendanceController {

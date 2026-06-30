@@ -7,6 +7,12 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+/**
+Contiene configuraciones específicas del backend, como el filtro CORS que permite
+comunicación segura con el frontend según origen y métodos.
+
+También aquí pueden ir otras configuraciones externas o beans necesarios para la app.
+ */
 @Configuration
 public class CorsConfig { 
 

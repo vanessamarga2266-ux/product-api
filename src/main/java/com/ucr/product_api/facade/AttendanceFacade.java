@@ -12,7 +12,12 @@ import com.ucr.product_api.mappers.AttendanceMapper;
 import com.ucr.product_api.services.IAttendanceService;
 
 import jakarta.transaction.Transactional;
-
+/**
+ * Capa intermedia para simplificar la comunicación entre controladores y servicios.
+Orquesta llamadas a servicios y hace mapeos entre entidades y DTOs.
+Promueve un diseño desacoplado 
+Permite agregar lógica cross-cutting sin contaminar controladores ni servicios.(multiples capas != logica principal)
+ */
 @Component
 public class AttendanceFacade implements IAttendanceFacade {
 

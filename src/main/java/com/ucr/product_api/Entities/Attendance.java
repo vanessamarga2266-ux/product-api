@@ -17,6 +17,13 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+/**
+ Representan las tablas de base de datos con objetos Java usando JPA/Hibernate.
+Cada entidad mapea atributos a columnas.
+Facilitan la persistencia y recuperación de datos en forma de objetos
+Uso de UUID como identificador único global aumenta seguridad y escalabilidad.
+ */
+
 
 @Entity
 @Table(name = "attendance")

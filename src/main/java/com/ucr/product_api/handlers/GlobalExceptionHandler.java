@@ -12,6 +12,11 @@ import com.ucr.product_api.exceptions.ScheduleNotFoundException;
 import com.ucr.product_api.exceptions.TipoUserNotFoundException;
 import com.ucr.product_api.exceptions.UserNotFoundException;
 
+/**
+Manejan excepciones globalmente para devolver respuestas uniformes y amigables al frontend.
+Atrapando errores específicos
+
+ */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
