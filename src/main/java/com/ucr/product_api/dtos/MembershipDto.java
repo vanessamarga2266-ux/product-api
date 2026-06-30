@@ -4,10 +4,9 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 public record MembershipDto(
-      UUID resourceId,
-      String name,
-      String description,
-      BigDecimal price,
-      Integer durationDays
-) {
-}
+    UUID resourceId,
+    String name,
+    String description,
+    BigDecimal price,
+    Integer durationDays
+) {}
